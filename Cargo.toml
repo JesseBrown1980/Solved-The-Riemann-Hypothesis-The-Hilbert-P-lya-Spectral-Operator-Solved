@@ -1,0 +1,9 @@
+[package]
+name = "riemann-hilbert-polya-spectral"
+version = "0.1.0"
+edition = "2021"
+authors = ["Jesse Daniel Brown <JesseBrown1980>", "Rayssa Chiqueto"]
+description = "The Riemann Hypothesis & The Hilbert-Pólya Spectral Operator Solved in 3-Adic Tribit Space"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
