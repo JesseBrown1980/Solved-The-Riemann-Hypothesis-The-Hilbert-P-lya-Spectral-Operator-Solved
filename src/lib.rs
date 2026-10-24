@@ -140,15 +140,15 @@ pub const fn inv_mod(a: u64) -> u64 {
 /// Forward 27-point spherical NTT prism transform.
 pub fn prism(x: &[u64; K]) -> [u64; K] {
     let mut out = [0u64; K];
-    for j in 0..K {
+    for (j, item) in out.iter_mut().enumerate() {
         let wj = pow_mod(W, j as u64);
         let mut acc = 0u64;
         let mut t = 1u64;
-        for i in 0..K {
-            acc = add_mod(acc, mul_mod(x[i] % P, t));
+        for &xi in x.iter() {
+            acc = add_mod(acc, mul_mod(xi % P, t));
             t = mul_mod(t, wj);
         }
-        out[j] = acc;
+        *item = acc;
     }
     out
 }
@@ -158,15 +158,15 @@ pub fn unprism(x: &[u64; K]) -> [u64; K] {
     let winv = inv_mod(W);
     let kinv = inv_mod(K as u64);
     let mut out = [0u64; K];
-    for j in 0..K {
+    for (j, item) in out.iter_mut().enumerate() {
         let wj = pow_mod(winv, j as u64);
         let mut acc = 0u64;
         let mut t = 1u64;
-        for i in 0..K {
-            acc = add_mod(acc, mul_mod(x[i] % P, t));
+        for &xi in x.iter() {
+            acc = add_mod(acc, mul_mod(xi % P, t));
             t = mul_mod(t, wj);
         }
-        out[j] = mul_mod(acc, kinv);
+        *item = mul_mod(acc, kinv);
     }
     out
 }
@@ -227,12 +227,12 @@ impl Matrix27 {
 
     pub fn mul_vec(&self, v: &[u64; K]) -> [u64; K] {
         let mut out = [0u64; K];
-        for i in 0..K {
+        for (i, item) in out.iter_mut().enumerate() {
             let mut acc = 0u128;
-            for j in 0..K {
-                acc = (acc + self.data[i][j] as u128 * v[j] as u128) % P as u128;
+            for (j, &vj) in v.iter().enumerate() {
+                acc = (acc + self.data[i][j] as u128 * vj as u128) % P as u128;
             }
-            out[i] = acc as u64;
+            *item = acc as u64;
         }
         out
     }

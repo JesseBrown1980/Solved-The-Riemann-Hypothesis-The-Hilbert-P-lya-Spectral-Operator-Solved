@@ -87,8 +87,8 @@ fn uncomputed_center_invariant_holds_on_all_spectral_eigenstates() {
     test_vectors.push(v_nu);
 
     let mut v_ac = [0u64; K];
-    for i in 0..K {
-        v_ac[i] = if i % 2 == 0 { 100 } else { P - 100 };
+    for (i, item) in v_ac.iter_mut().enumerate() {
+        *item = if i % 2 == 0 { 100 } else { P - 100 };
     }
     test_vectors.push(v_ac);
 
@@ -140,8 +140,8 @@ fn hilbert_polya_discrete_spectrum_matches_first_riemann_zero_statistics() {
 #[test]
 fn spherical_ntt_prism_round_trip_is_exact() {
     let mut frame = [0u64; K];
-    for i in 0..K {
-        frame[i] = ((i as u64 * 31 + 7) * 911) % P;
+    for (i, item) in frame.iter_mut().enumerate() {
+        *item = ((i as u64 * 31 + 7) * 911) % P;
     }
     let spectrum = prism(&frame);
     let back = unprism(&spectrum);
