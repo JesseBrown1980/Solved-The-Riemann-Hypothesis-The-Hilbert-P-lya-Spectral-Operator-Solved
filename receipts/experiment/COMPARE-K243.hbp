@@ -1,0 +1,135 @@
+HBP ZETA-COMPARISON v1
+K=243 M=121 anchor=rank1_to_zeta1 zeros_available=1000
+T k=1 t=17578382390253124391 N_zeta=1 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=2 t=23016448609458621878 N_zeta=2 N_op_in=2 N_op_ambiguous=0 status=AGREE
+T k=3 t=27717866853002600987 N_zeta=3 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=4 t=31679968856799351450 N_zeta=4 N_op_in=3 N_op_ambiguous=0 status=DISAGREE
+T k=5 t=35260619873282430474 N_zeta=5 N_op_in=3 N_op_ambiguous=0 status=DISAGREE
+T k=6 t=39252448585486583222 N_zeta=6 N_op_in=5 N_op_ambiguous=0 status=DISAGREE
+T k=7 t=42122896146531247353 N_zeta=7 N_op_in=5 N_op_ambiguous=0 status=DISAGREE
+T k=8 t=45666112081041079623 N_zeta=8 N_op_in=5 N_op_ambiguous=0 status=DISAGREE
+T k=9 t=48889491679419730954 N_zeta=9 N_op_in=5 N_op_ambiguous=0 status=DISAGREE
+T k=10 t=51372076977693381413 N_zeta=10 N_op_in=6 N_op_ambiguous=0 status=DISAGREE
+T k=11 t=54708284587388927724 N_zeta=11 N_op_in=7 N_op_ambiguous=0 status=DISAGREE
+T k=12 t=57896645849832873942 N_zeta=12 N_op_in=7 N_op_ambiguous=0 status=DISAGREE
+T k=13 t=60089411263606081462 N_zeta=13 N_op_in=8 N_op_ambiguous=0 status=DISAGREE
+T k=14 t=62972161286345708252 N_zeta=14 N_op_in=8 N_op_ambiguous=0 status=DISAGREE
+T k=15 t=66096177288787890187 N_zeta=15 N_op_in=9 N_op_ambiguous=0 status=DISAGREE
+T k=16 t=68313106120334076483 N_zeta=16 N_op_in=9 N_op_ambiguous=0 status=DISAGREE
+T k=17 t=70806779692827943417 N_zeta=17 N_op_in=11 N_op_ambiguous=0 status=DISAGREE
+T k=18 t=73885924186782920375 N_zeta=18 N_op_in=12 N_op_ambiguous=0 status=DISAGREE
+T k=19 t=76424765383979369270 N_zeta=19 N_op_in=12 N_op_ambiguous=0 status=DISAGREE
+T k=20 t=78241107544562086647 N_zeta=20 N_op_in=12 N_op_ambiguous=0 status=DISAGREE
+T k=21 t=81123877937167699053 N_zeta=21 N_op_in=13 N_op_ambiguous=0 status=DISAGREE
+T k=22 t=83822936917301540144 N_zeta=22 N_op_in=14 N_op_ambiguous=0 status=DISAGREE
+T k=23 t=86080383796821139756 N_zeta=23 N_op_in=14 N_op_ambiguous=0 status=DISAGREE
+T k=24 t=88117192910379847415 N_zeta=24 N_op_in=14 N_op_ambiguous=0 status=DISAGREE
+T k=25 t=90650505239096474860 N_zeta=25 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=26 t=93571621655539185631 N_zeta=26 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=27 t=95260989134382598362 N_zeta=27 N_op_in=16 N_op_ambiguous=0 status=DISAGREE
+T k=28 t=97350914223219500996 N_zeta=28 N_op_in=17 N_op_ambiguous=0 status=DISAGREE
+T k=29 t=100074522611962541731 N_zeta=29 N_op_in=17 N_op_ambiguous=0 status=DISAGREE
+T k=30 t=102521694523104865322 N_zeta=30 N_op_in=17 N_op_ambiguous=0 status=DISAGREE
+T k=31 t=104586080546402216955 N_zeta=31 N_op_in=17 N_op_ambiguous=0 status=DISAGREE
+T k=32 t=106307617118301251004 N_zeta=32 N_op_in=17 N_op_ambiguous=0 status=DISAGREE
+T k=33 t=109099073363723041020 N_zeta=33 N_op_in=19 N_op_ambiguous=0 status=DISAGREE
+T k=34 t=111452097360081155805 N_zeta=34 N_op_in=19 N_op_ambiguous=0 status=DISAGREE
+T k=35 t=113097440046222674925 N_zeta=35 N_op_in=19 N_op_ambiguous=0 status=DISAGREE
+T k=36 t=115273450618155133574 N_zeta=36 N_op_in=19 N_op_ambiguous=0 status=DISAGREE
+T k=37 t=117508731593416885852 N_zeta=37 N_op_in=19 N_op_ambiguous=0 status=DISAGREE
+T k=38 t=120080453934198431620 N_zeta=38 N_op_in=19 N_op_ambiguous=0 status=DISAGREE
+T k=39 t=122158477147986617059 N_zeta=39 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=40 t=123601823923949177692 N_zeta=40 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=41 t=125886751216971131154 N_zeta=41 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=42 t=128547694039776273055 N_zeta=42 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=43 t=130333196365444353854 N_zeta=43 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=44 t=132292712866965121587 N_zeta=44 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=45 t=134127123478185728891 N_zeta=45 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=46 t=136436275903953657266 N_zeta=46 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=47 t=138926125503327416075 N_zeta=47 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=48 t=140429958178071256356 N_zeta=48 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=49 t=142117776605820878250 N_zeta=49 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=50 t=144556414147193075643 N_zeta=50 N_op_in=20 N_op_ambiguous=0 status=DISAGREE
+T k=51 t=146711873914662560298 N_zeta=51 N_op_in=22 N_op_ambiguous=0 status=DISAGREE
+T k=52 t=148738142881672241200 N_zeta=52 N_op_in=23 N_op_ambiguous=0 status=DISAGREE
+T k=53 t=150489389016513173556 N_zeta=53 N_op_in=23 N_op_ambiguous=0 status=DISAGREE
+T k=54 t=151974975711720181480 N_zeta=54 N_op_in=23 N_op_ambiguous=0 status=DISAGREE
+T k=55 t=154568801552718381884 N_zeta=55 N_op_in=23 N_op_ambiguous=0 status=DISAGREE
+T k=56 t=156855250555915963728 N_zeta=56 N_op_in=24 N_op_ambiguous=0 status=DISAGREE
+T k=57 t=158223789994507279306 N_zeta=57 N_op_in=24 N_op_ambiguous=0 status=DISAGREE
+T k=58 t=160019476154508263122 N_zeta=58 N_op_in=24 N_op_ambiguous=0 status=DISAGREE
+T k=59 t=162109836912389007381 N_zeta=59 N_op_in=25 N_op_ambiguous=0 status=DISAGREE
+T k=60 t=164283889437541203037 N_zeta=60 N_op_in=25 N_op_ambiguous=0 status=DISAGREE
+T k=61 t=166360754583037466135 N_zeta=61 N_op_in=26 N_op_ambiguous=0 status=DISAGREE
+T k=62 t=168139477696871667465 N_zeta=62 N_op_in=26 N_op_ambiguous=0 status=DISAGREE
+T k=63 t=169503245947490260228 N_zeta=63 N_op_in=27 N_op_ambiguous=0 status=DISAGREE
+T k=64 t=171661756499501625963 N_zeta=64 N_op_in=27 N_op_ambiguous=0 status=DISAGREE
+T k=65 t=174082864021478639386 N_zeta=65 N_op_in=29 N_op_ambiguous=0 status=DISAGREE
+T k=66 t=175597812910538072351 N_zeta=66 N_op_in=30 N_op_ambiguous=0 status=DISAGREE
+T k=67 t=177409421036905198087 N_zeta=67 N_op_in=31 N_op_ambiguous=0 status=DISAGREE
+T k=68 t=179146945898178486712 N_zeta=68 N_op_in=31 N_op_ambiguous=0 status=DISAGREE
+T k=69 t=181061781252311729027 N_zeta=69 N_op_in=31 N_op_ambiguous=0 status=DISAGREE
+T k=70 t=183540773166376985358 N_zeta=70 N_op_in=31 N_op_ambiguous=0 status=DISAGREE
+T k=71 t=185236625763047490133 N_zeta=71 N_op_in=31 N_op_ambiguous=0 status=DISAGREE
+T k=72 t=186413853130604661729 N_zeta=72 N_op_in=31 N_op_ambiguous=0 status=DISAGREE
+T k=73 t=188322540619759394538 N_zeta=73 N_op_in=33 N_op_ambiguous=0 status=DISAGREE
+T k=74 t=190721407508365361816 N_zeta=74 N_op_in=33 N_op_ambiguous=0 status=DISAGREE
+T k=75 t=192553191482279745297 N_zeta=75 N_op_in=33 N_op_ambiguous=0 status=DISAGREE
+T k=76 t=194172561641687469684 N_zeta=76 N_op_in=33 N_op_ambiguous=0 status=DISAGREE
+T k=77 t=196070939260243776135 N_zeta=77 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=78 t=197445895758605114686 N_zeta=78 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=79 t=199640030809977850579 N_zeta=79 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=80 t=201879173228922161505 N_zeta=80 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=81 t=203341633158622544304 N_zeta=81 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=82 t=204792184502633920178 N_zeta=82 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=83 t=206650478044984747943 N_zeta=83 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=84 t=208741384302331234857 N_zeta=84 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=85 t=210633686156110783708 N_zeta=85 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=86 t=212519390977538986877 N_zeta=86 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=87 t=213947482071602044706 N_zeta=87 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=88 t=215358291645877561744 N_zeta=88 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=89 t=217618567428642539625 N_zeta=89 N_op_in=34 N_op_ambiguous=0 status=DISAGREE
+T k=90 t=219891257594167691177 N_zeta=90 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=91 t=221072812197003671051 N_zeta=91 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=92 t=222718852904648836972 N_zeta=92 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=93 t=224495162462093311357 N_zeta=93 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=94 t=226202384474630789407 N_zeta=94 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=95 t=228379428792602319709 N_zeta=95 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=96 t=230293801003012256440 N_zeta=96 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=97 t=231618711976839706688 N_zeta=97 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=98 t=232840319716044274622 N_zeta=98 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=99 t=235108816922362253221 N_zeta=99 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=100 t=237147025073370704903 N_zeta=100 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=101 t=238662649027126416372 N_zeta=101 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=102 t=240302317684772107576 N_zeta=102 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=103 t=241936214865219593214 N_zeta=103 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=104 t=243447085215650379126 N_zeta=104 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=105 t=245603944285987828852 N_zeta=105 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=106 t=247619490067522979362 N_zeta=106 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=107 t=248837839852427834224 N_zeta=107 N_op_in=35 N_op_ambiguous=0 status=DISAGREE
+T k=108 t=250294318719861605167 N_zeta=108 N_op_in=36 N_op_ambiguous=0 status=DISAGREE
+T k=109 t=252042467271507739168 N_zeta=109 N_op_in=36 N_op_ambiguous=0 status=DISAGREE
+T k=110 t=254188121601456749974 N_zeta=110 N_op_in=36 N_op_ambiguous=0 status=DISAGREE
+T k=111 t=255843485074674250271 N_zeta=111 N_op_in=37 N_op_ambiguous=0 status=DISAGREE
+T k=112 t=257495576592982922999 N_zeta=112 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=113 t=259242423240604684279 N_zeta=113 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=114 t=260339745747137435268 N_zeta=114 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=115 t=262189489204733501209 N_zeta=115 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=116 t=264565872871873226263 N_zeta=116 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=117 t=266086412810188696394 N_zeta=117 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=118 t=267268444432162565968 N_zeta=118 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=119 t=268946182053410831017 N_zeta=119 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=120 t=270732252332821300806 N_zeta=120 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+T k=121 t=272476832415024143032 N_zeta=121 N_op_in=38 N_op_ambiguous=0 status=DISAGREE
+ANCHORED n=1 gamma_hat=14.134725 zeta=14.134725
+ANCHORED n=2 gamma_hat=14.799282 zeta=21.022039
+ANCHORED n=3 gamma_hat=31.016308 zeta=25.010857
+ANCHORED n=4 gamma_hat=35.398953 zeta=30.424876
+ANCHORED n=5 gamma_hat=37.205199 zeta=32.935061
+ANCHORED n=6 gamma_hat=49.007950 zeta=37.586178
+ANCHORED n=7 gamma_hat=54.194905 zeta=40.918719
+ANCHORED n=8 gamma_hat=60.052905 zeta=43.327073
+ANCHORED n=9 gamma_hat=65.417329 zeta=48.005150
+ANCHORED n=10 gamma_hat=69.743526 zeta=49.773832
+ANCHORED n=121 gamma_hat=2457.932915 zeta=271.494055
+VERDICT K=243 verdict=MISMATCH agree=1/121 disagree=120 ambiguous=0 first_disagree=1 max_abs_dev=83

@@ -1,0 +1,54 @@
+HBP ZETA-COMPARISON v1
+K=81 M=40 anchor=rank1_to_zeta1 zeros_available=1000
+T k=1 t=17578382390253124391 N_zeta=1 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=2 t=23016448609458621878 N_zeta=2 N_op_in=2 N_op_ambiguous=0 status=AGREE
+T k=3 t=27717866853002600987 N_zeta=3 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=4 t=31679968856799351450 N_zeta=4 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=5 t=35260619873282430474 N_zeta=5 N_op_in=3 N_op_ambiguous=0 status=DISAGREE
+T k=6 t=39252448585486583222 N_zeta=6 N_op_in=4 N_op_ambiguous=0 status=DISAGREE
+T k=7 t=42122896146531247353 N_zeta=7 N_op_in=4 N_op_ambiguous=0 status=DISAGREE
+T k=8 t=45666112081041079623 N_zeta=8 N_op_in=4 N_op_ambiguous=0 status=DISAGREE
+T k=9 t=48889491679419730954 N_zeta=9 N_op_in=6 N_op_ambiguous=0 status=DISAGREE
+T k=10 t=51372076977693381413 N_zeta=10 N_op_in=6 N_op_ambiguous=0 status=DISAGREE
+T k=11 t=54708284587388927724 N_zeta=11 N_op_in=6 N_op_ambiguous=0 status=DISAGREE
+T k=12 t=57896645849832873942 N_zeta=12 N_op_in=8 N_op_ambiguous=0 status=DISAGREE
+T k=13 t=60089411263606081462 N_zeta=13 N_op_in=8 N_op_ambiguous=0 status=DISAGREE
+T k=14 t=62972161286345708252 N_zeta=14 N_op_in=8 N_op_ambiguous=0 status=DISAGREE
+T k=15 t=66096177288787890187 N_zeta=15 N_op_in=9 N_op_ambiguous=0 status=DISAGREE
+T k=16 t=68313106120334076483 N_zeta=16 N_op_in=10 N_op_ambiguous=0 status=DISAGREE
+T k=17 t=70806779692827943417 N_zeta=17 N_op_in=10 N_op_ambiguous=0 status=DISAGREE
+T k=18 t=73885924186782920375 N_zeta=18 N_op_in=10 N_op_ambiguous=0 status=DISAGREE
+T k=19 t=76424765383979369270 N_zeta=19 N_op_in=10 N_op_ambiguous=0 status=DISAGREE
+T k=20 t=78241107544562086647 N_zeta=20 N_op_in=10 N_op_ambiguous=0 status=DISAGREE
+T k=21 t=81123877937167699053 N_zeta=21 N_op_in=10 N_op_ambiguous=0 status=DISAGREE
+T k=22 t=83822936917301540144 N_zeta=22 N_op_in=10 N_op_ambiguous=0 status=DISAGREE
+T k=23 t=86080383796821139756 N_zeta=23 N_op_in=10 N_op_ambiguous=0 status=DISAGREE
+T k=24 t=88117192910379847415 N_zeta=24 N_op_in=11 N_op_ambiguous=0 status=DISAGREE
+T k=25 t=90650505239096474860 N_zeta=25 N_op_in=11 N_op_ambiguous=0 status=DISAGREE
+T k=26 t=93571621655539185631 N_zeta=26 N_op_in=12 N_op_ambiguous=0 status=DISAGREE
+T k=27 t=95260989134382598362 N_zeta=27 N_op_in=12 N_op_ambiguous=0 status=DISAGREE
+T k=28 t=97350914223219500996 N_zeta=28 N_op_in=12 N_op_ambiguous=0 status=DISAGREE
+T k=29 t=100074522611962541731 N_zeta=29 N_op_in=14 N_op_ambiguous=0 status=DISAGREE
+T k=30 t=102521694523104865322 N_zeta=30 N_op_in=14 N_op_ambiguous=0 status=DISAGREE
+T k=31 t=104586080546402216955 N_zeta=31 N_op_in=14 N_op_ambiguous=0 status=DISAGREE
+T k=32 t=106307617118301251004 N_zeta=32 N_op_in=14 N_op_ambiguous=0 status=DISAGREE
+T k=33 t=109099073363723041020 N_zeta=33 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=34 t=111452097360081155805 N_zeta=34 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=35 t=113097440046222674925 N_zeta=35 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=36 t=115273450618155133574 N_zeta=36 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=37 t=117508731593416885852 N_zeta=37 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=38 t=120080453934198431620 N_zeta=38 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=39 t=122158477147986617059 N_zeta=39 N_op_in=15 N_op_ambiguous=0 status=DISAGREE
+T k=40 t=123601823923949177692 N_zeta=40 N_op_in=16 N_op_ambiguous=0 status=DISAGREE
+ANCHORED n=1 gamma_hat=14.134725 zeta=14.134725
+ANCHORED n=2 gamma_hat=14.757437 zeta=21.022039
+ANCHORED n=3 gamma_hat=31.909456 zeta=25.010857
+ANCHORED n=4 gamma_hat=37.860546 zeta=30.424876
+ANCHORED n=5 gamma_hat=46.292804 zeta=32.935061
+ANCHORED n=6 gamma_hat=47.358846 zeta=37.586178
+ANCHORED n=7 gamma_hat=55.321555 zeta=40.918719
+ANCHORED n=8 gamma_hat=56.917133 zeta=43.327073
+ANCHORED n=9 gamma_hat=64.049378 zeta=48.005150
+ANCHORED n=10 gamma_hat=67.550709 zeta=49.773832
+ANCHORED n=40 gamma_hat=531.675082 zeta=122.946829
+VERDICT K=81 verdict=MISMATCH agree=1/40 disagree=39 ambiguous=0 first_disagree=1 max_abs_dev=24
