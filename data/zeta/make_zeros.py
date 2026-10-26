@@ -1,14 +1,16 @@
-"""Zeta-zero table for the pre-registered comparison (comparator input).
+"""Zeta-zero table for the pre-registered comparisons (comparator input).
 
-gamma_n for n = 1..1000 via mpmath.zetazero at 50 digits. Enclosure at scale 1e18:
+usage: python make_zeros.py [N]   (default 1000; 3300 for the Relic landings)
+
+gamma_n for n = 1..N via mpmath.zetazero at 50 digits. Enclosure at scale 1e18:
 [floor(g*1e18) - 1000, ceil(g*1e18) + 1000]. Isolation: Hardy Z changes sign
 across each enclosure. Completeness: mpmath.nzeros at the midpoint between zeros
-1000 and 1001 equals 1000.
+N and N+1 equals N.
 """
 import sys, mpmath
 mpmath.mp.dps = 50
 S = 10**18
-N = 1000
+N = int(sys.argv[1]) if len(sys.argv) > 1 else 1000
 out = []
 gs = []
 for n in range(1, N + 2):
