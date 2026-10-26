@@ -136,7 +136,7 @@ rank.
 | 27 | 1,000,081 | 13 | 13 | 14 / 14 (all ranks) |
 | 81 | 1,000,999 | 40 | 40 | 41 / 41 (all ranks) |
 | 243 | 1,002,619 | 121 | 121 | 122 / 122 (all ranks) |
-| 729 | 1,006,021 | 364 | 364 | spot ranks 0, 46, 91, …, 364: running |
+| 729 | 1,006,021 | 364 | 364 | 9 / 9 (ranks 0, 46, 91, 137, 182, 228, 273, 319, 364) |
 
 **Zeros.** The table holds γ₁ … γ₁₀₀₀ at 50 digits, with enclosures of width
 2·10⁻¹⁵. Each zero is isolated by a sign change of Hardy's Z function, and
@@ -151,7 +151,7 @@ and counts are compared between consecutive zeros.
 | 27 | MISMATCH | 1 / 13 | 11 | 31.04 vs 21.02 | 502.92 vs 59.35 |
 | 81 | MISMATCH | 1 / 40 | 24 | 14.76 vs 21.02 | 531.68 vs 122.95 |
 | 243 | MISMATCH | 1 / 121 | 83 | 14.80 vs 21.02 | 2457.93 vs 271.49 |
-| 729 | MISMATCH (receipt pending) | 1 / 364 | 354 | 29.39 vs 21.02 | 81620.23 vs 630.81 |
+| 729 | MISMATCH | 1 / 364 | 354 | 29.39 vs 21.02 | 81620.23 vs 630.81 |
 
 **Reading, as pre-registered.** The ordinates of this operator family, under
 this anchoring, do not follow the zeta ordinates at any of the four sizes.
