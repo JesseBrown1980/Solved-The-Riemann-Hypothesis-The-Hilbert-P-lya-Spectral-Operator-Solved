@@ -1,0 +1,27 @@
+HBP ZETA-COMPARISON v1
+K=27 M=13 anchor=rank1_to_zeta1 zeros_available=3300
+T k=1 t=17578382390253124391 N_zeta=1 N_op_in=1 N_op_ambiguous=0 status=AGREE
+T k=2 t=23016448609458621878 N_zeta=2 N_op_in=1 N_op_ambiguous=0 status=DISAGREE
+T k=3 t=27717866853002600987 N_zeta=3 N_op_in=1 N_op_ambiguous=0 status=DISAGREE
+T k=4 t=31679968856799351450 N_zeta=4 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=5 t=35260619873282430474 N_zeta=5 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=6 t=39252448585486583222 N_zeta=6 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=7 t=42122896146531247353 N_zeta=7 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=8 t=45666112081041079623 N_zeta=8 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=9 t=48889491679419730954 N_zeta=9 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=10 t=51372076977693381413 N_zeta=10 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=11 t=54708284587388927724 N_zeta=11 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=12 t=57896645849832873942 N_zeta=12 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+T k=13 t=60089411263606081462 N_zeta=13 N_op_in=2 N_op_ambiguous=0 status=DISAGREE
+ANCHORED n=1 gamma_hat=14.134725 zeta=14.134725
+ANCHORED n=2 gamma_hat=31.038837 zeta=21.022039
+ANCHORED n=3 gamma_hat=63.301703 zeta=25.010857
+ANCHORED n=4 gamma_hat=75.448320 zeta=30.424876
+ANCHORED n=5 gamma_hat=110.500347 zeta=32.935061
+ANCHORED n=6 gamma_hat=129.453028 zeta=37.586178
+ANCHORED n=7 gamma_hat=161.485493 zeta=40.918719
+ANCHORED n=8 gamma_hat=186.794756 zeta=43.327073
+ANCHORED n=9 gamma_hat=241.663559 zeta=48.005150
+ANCHORED n=10 gamma_hat=245.095367 zeta=49.773832
+ANCHORED n=13 gamma_hat=502.919354 zeta=59.347044
+VERDICT K=27 verdict=MISMATCH agree=1/13 disagree=12 ambiguous=0 first_disagree=2 max_abs_dev=11

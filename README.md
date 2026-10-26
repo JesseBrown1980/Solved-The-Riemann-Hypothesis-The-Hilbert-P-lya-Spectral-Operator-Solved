@@ -168,6 +168,51 @@ Receipts: [`receipts/experiment/`](receipts/experiment/), with `SPECTRUM-K*.hbp`
 from the builder and `COMPARE-K*.hbp` from the comparator. The zero table is
 [`data/zeta/ZEROS-1000.hbp`](data/zeta/ZEROS-1000.hbp).
 
+### The Relic-landing operator
+
+The second experiment follows the lineage of
+[THE RELIC REDISCOVERY](https://github.com/JesseBrown1980/THE-RELIC-REDISCOVERY).
+At each landing, 27 → 243 → 6,561, the operator nests the previous one and adds
+a new inner wave on fresh primes:
+
+```text
+T^(n+1) = T^(n) ⊗ I_q + I ⊗ S_q,   q = 3^(n+2)
+```
+
+Every landing keeps exactly one zero eigenvalue, the free centre. Every choice
+was frozen in [`PREREGISTRATION-RELIC.md`](PREREGISTRATION-RELIC.md) before the
+comparison.
+
+**Builder.**
+- **Factors.** Every factor passes exact inertia at every rank.
+- **Landing 243.** Dense inertia of the full 243 × 243 matrix agrees at all 122
+  ranks.
+- **Landing 6,561.** One free centre plus 3,280 separated positive ordinates.
+
+**Zeros.** γ₁ … γ₃₃₀₀, built the same way as the first table and complete at
+3,300. All lie within Odlyzko's zeros6.
+
+| Landing | verdict | thresholds agreeing | max \|N_op − N_ζ\| | γ̂₂ vs γ₂ | γ̂_m vs γ_m |
+|---:|---|---:|---:|---|---|
+| 27 | MISMATCH | 1 / 13 | 11 | 31.04 vs 21.02 | 502.92 vs 59.35 |
+| 243 | MISMATCH | 1 / 121 | 100 | 33.48 vs 21.02 | 3118.36 vs 271.49 |
+| 6,561 | MISMATCH | 1 / 3,280 | 2,930 | 27.70 vs 21.02 | 99889.38 vs 3809.87 |
+
+**Reading, as pre-registered.** Under the same one-anchor normalization, the
+nested operator's ordinates do not follow the zeta ordinates at any landing.
+- At the top of the spectrum the nested operator overshoots by 11.5× at 243
+  and 26× at 6,561. The flat family overshot by 129× at K = 729.
+- The low-lying anchored ordinates sit closer to the zeros: γ̂₂ to γ̂₅ are 27.7,
+  36.2, 39.9 and 51.4 at 6,561, against 21.0, 25.0, 30.4 and 32.9.
+- The counts still separate from the first threshold on.
+
+This result measures the nesting rule frozen in `PREREGISTRATION-RELIC.md`. The
+operator's critical-line symmetry, Theorem 1, holds at every landing.
+
+Receipts: [`receipts/relic/`](receipts/relic/), with `SPECTRUM-L*.hbp` and
+`COMPARE-L*.hbp`. The zero table is
+[`data/zeta/ZEROS-3300.hbp`](data/zeta/ZEROS-3300.hbp).
+
 ```bash
 cargo run --release --bin build_spectrum -- 243 full > SPECTRUM-K243.hbp
 cargo run --release --bin compare_zeta -- SPECTRUM-K243.hbp data/zeta/ZEROS-1000.hbp
