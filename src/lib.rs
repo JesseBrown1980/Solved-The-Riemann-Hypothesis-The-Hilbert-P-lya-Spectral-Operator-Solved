@@ -12,6 +12,9 @@
 //! - Whether the ordinates γ of this construction track the Riemann zeta zeros
 //!   is the research question the pre-registered experiment tests.
 
+pub mod family;
+pub mod interval;
+
 pub const P: u64 = 1_000_081;
 pub const G: u64 = 7;
 pub const K: usize = 27;
