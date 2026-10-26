@@ -1,15 +1,16 @@
-//! The Riemann Hypothesis & The Hilbert-Pólya Spectral Operator in 3-Adic Tribit Space.
+//! A finite skew-circulant Hilbert–Pólya operator on the 27-point tribit frame.
 //!
-//! # The Asolaria Breakthrough
-//! - In 3-adic balanced-ternary space, the critical line Re(s) = 1/2 is the quiescent
-//!   symmetry axis between the rising zero-crossing (Zero::Pos = +1) and falling zero-crossing (Zero::Neg = -1).
-//! - The functional equation ξ(s) = ξ(1-s) is the phase conjugation C: s ↦ 1 - s across the AC carrier.
-//! - The Hilbert-Pólya Hamiltonian H = 1/2 I + T is discretized over the 27-point rime frame (K = 27 = 3³).
-//! - The dilation generator T is strictly skew-symmetric (Tᵀ = -T mod P), ensuring that:
-//!     H + Hᵀ = I (mod P)
-//!   identically, proving that every eigenvalue λ has Re(λ) = 1/2 with strictly ZERO off-axis drift.
-//! - Transformed by the 27-point spherical NTT prism over prime P = 1_000_081, every resonant
-//!   eigenstate satisfies the uncomputed center invariant X[0] ≡ 0 (mod P) (Law 0).
+//! - The generator T is a 27 × 27 circulant whose couplings are built from the
+//!   order-27 root W of F_P (P = 1,000,081) and the first 27 primes. It satisfies
+//!   Tᵀ = −T and has zero row sums.
+//! - The Hamiltonian H = ½I + T satisfies H + Hᵀ = I. Over F_P this is an exact
+//!   modular identity. Over ℂ it is a spectral theorem for the integer lift
+//!   [`generator_couplings_integer`]: a real skew-symmetric T has purely imaginary
+//!   spectrum {0, ±iγ₁, …, ±iγ₁₃}, so every eigenvalue of ½I + T lies on Re = ½.
+//! - The 27-point prism (NTT) is an exact bijection, and the zero row sums give
+//!   the centre invariant prism(Tv)[0] = 0 for every state v.
+//! - Whether the ordinates γ of this construction track the Riemann zeta zeros
+//!   is the research question the pre-registered experiment tests.
 
 pub const P: u64 = 1_000_081;
 pub const G: u64 = 7;
@@ -18,8 +19,8 @@ pub const W: u64 = 951_846;
 
 /// The first 27 primes corresponding to the 27 rime dimensions (K = 27 = 3³).
 pub const PRIMES_27: [u64; K] = [
-    2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89,
-    97, 101, 103,
+    2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
+    101, 103,
 ];
 
 /// The three zeros of balanced ternary / tribit space.
@@ -264,6 +265,22 @@ pub fn build_hilbert_polya_generator() -> Matrix27 {
         }
     }
     t
+}
+
+/// The generator couplings c[d] lifted from F_P to the integers.
+///
+/// Each residue is taken to its balanced representative in (−P/2, P/2], so the
+/// lift keeps c[K − d] = −c[d] exactly and reduces mod P to
+/// [`build_hilbert_polya_generator`]. The integer matrix T[i][j] = c[(j − i) mod K]
+/// is real skew-symmetric.
+pub fn generator_couplings_integer() -> [i64; K] {
+    let t = build_hilbert_polya_generator();
+    let mut c = [0i64; K];
+    for (d, item) in c.iter_mut().enumerate() {
+        let r = t.data[0][d] as i64;
+        *item = if r > (P as i64) / 2 { r - P as i64 } else { r };
+    }
+    c
 }
 
 /// Construct the Discrete Hilbert-Pólya Critical-Line Hamiltonian:

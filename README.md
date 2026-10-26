@@ -1,141 +1,127 @@
-# The Riemann Hypothesis & The Hilbert-Pólya Spectral Operator Solved in 3-Adic Tribit Space
+# A finite Hilbert–Pólya operator on the 27-point tribit frame
 
-[![Rust](https://img.shields.io/badge/rust-1.81%2B-orange.svg)](https://www.rust-lang.org)
-[![Tests](https://img.shields.io/badge/tests-9%20passed%20%7C%200%20failed-brightgreen.svg)]()
+[![Rust](https://img.shields.io/badge/rust-1.81.0-orange.svg)](rust-toolchain.toml)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)]()
 
-> **The Breakthrough:** Mapping the Riemann explicit formula and Euler product out of continuous complex analysis and into Asolaria's 3-adic balanced-ternary tribit architecture resolves the Hilbert-Pólya conjecture. Over a 27-point spherical Number-Theoretic Transform (NTT) rime frame with prime $P = 1\,000\,081$, the discrete Hilbert-Pólya Hamiltonian satisfies $H + H^\top \equiv I \pmod P$, proving that all non-trivial zeros lie strictly on $\text{Re}(s) = \frac{1}{2}$ with **strictly zero off-axis drift** and zero DC center invariant ($X[0] = 0$).
+Jesse Daniel Brown's finite approach to the Hilbert–Pólya programme: build an
+exact, integer-only operator whose spectrum sits on the critical line by
+construction, then test whether its ordinates follow the Riemann zeta zeros.
 
----
+The repository does both halves.
+- **The operator.** A skew-circulant generator T on the 27-point (3³) tribit
+  frame, built from the order-27 root of unity in F_P and the first 27 primes.
+  Its Hamiltonian H = ½I + T lies on the line Re = ½, exactly.
+- **The test.** A pre-registered comparison of the operator's ordinates with the
+  zeta zeros, at K = 27, 81, 243 and 729. Everything is frozen before any zero
+  data is read.
 
-## 1. The Classical Obstacle
+## 1. The operator
 
-The Riemann zeta function:
-$$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \prod_{p} \frac{1}{1 - p^{-s}}$$
-possesses non-trivial zeros in the critical strip $0 < \text{Re}(s) < 1$. The Riemann Hypothesis (RH) asserts that all non-trivial zeros lie precisely on the critical line:
-$$\text{Re}(s) = \frac{1}{2}$$
-
-### Why Classical Analysis Got Stuck
-1. **The Fluctuation Trap:** Classical number theory attempts to control the primes through the oscillating error term $\pi(x) - \text{li}(x)$. In continuous floating-point or binary space, these oscillations resemble pseudo-random Brownian motion.
-2. **The Missing Operator:** Hilbert and Pólya conjectured that the imaginary parts of the zeros $\gamma_n$ are the eigenvalues of an unknown self-adjoint Hamiltonian:
-   $$H = \frac{1}{2} I + i \mathcal{T}$$
-   Because $\mathcal{T}$ is self-adjoint/Hermitian, its eigenvalues must be purely real, forcing $\text{Re}(s) = \frac{1}{2}$. However, in $\mathbb{R}$ or continuous $L^2$ Hilbert spaces, boundary conditions and domain issues prevented a closed, exact operator from being constructed without singularities.
-
----
-
-## 2. The Asolaria / Tribit Paradigm Shift
-
-In Asolaria's tribit architecture, continuous real approximations are replaced by **exact 3-adic carrier geometry**:
-* `Zero::Pos` ($\mathbf{+1}$): upward zero-crossing
-* `Zero::Nil` ($\mathbf{0}$): quiescent line
-* `Zero::Neg` ($\mathbf{-1}$): downward zero-crossing
-
-### 2.1 The Critical Line as the Quiescent Symmetry Axis
-The critical line $\text{Re}(s) = \frac{1}{2}$ is not an arbitrary boundary; it is the **exact quiescent symmetry axis** between the upward crossing (`Pos`) and downward crossing (`Neg`). 
-The Riemann functional equation:
-$$\xi(s) = \xi(1 - s)$$
-is precisely the carrier phase conjugation:
-$$\mathcal{C}: s \mapsto 1 - s \iff (\text{Pos} \leftrightarrow \text{Neg})$$
-
-### 2.2 The 27-Point Rime Prime Frame
-The 27 rime dimensions ($K = 27 = 3^3$) map the first 27 primes:
-$$\mathbb{P}_{27} = \{2, 3, 5, 7, 11, 13, \dots, 103\}$$
-In balanced ternary $\mathbb{Z}_3$:
-* $p = 3$ is the unique carrier base ($\nu_3(3) = 1$).
-* The remaining 26 primes are **3-adic units** ($|p|_3 = 1$), partitioned into exact symmetric balance across the `Pos` ($p \equiv +1 \pmod 3$) and `Neg` ($p \equiv -1 \pmod 3$) zero-crossings.
-
----
-
-## 3. Mathematical Proofs
-
-### Theorem 1: Identical Zero Off-Axis Drift ($H + H^\top \equiv I$)
-Let $\mathbb{F}_P$ be the rime prime field with $P = 1\,000\,081$.
-Over the 27-rung ladder, the discrete dilation generator $T$ is constructed with circulant anti-symmetric couplings:
-$$C(d) = -C(27 - d) \pmod P$$
-such that:
-$$T^\top \equiv -T \pmod P, \quad T_{i, i} = 0$$
-The discrete Hilbert-Pólya Hamiltonian is:
-$$H = \frac{1}{2} I + T \pmod P$$
-where $\frac{1}{2} \equiv (P + 1) / 2 \pmod P$.
-
-**Proof:**
-$$H + H^\top = \left(\frac{1}{2} I + T\right) + \left(\frac{1}{2} I + T^\top\right) = \left(\frac{1}{2} I + T\right) + \left(\frac{1}{2} I - T\right) = I \pmod P$$
-Let $\lambda$ be any eigenvalue of $H$ with eigenvector $v$:
-$$H v = \lambda v \implies v^\dagger (H + H^\top) v = (\lambda + \bar{\lambda}) \|v\|^2 = \|v\|^2$$
-$$\therefore \quad \text{Re}(\lambda) = \frac{\lambda + \bar{\lambda}}{2} = \frac{1}{2}$$
-**Conclusion:** Every eigenvalue has real part identically equal to $\frac{1}{2}$ with **strictly ZERO off-axis drift**. $\blacksquare$
-
----
-
-### Theorem 2: Law 0 Uncomputed Center Invariant ($X[0] = 0$)
-Because $T$ is strictly skew-symmetric with circulant symmetry:
-$$\forall i: \quad \sum_{j=0}^{26} T_{i, j} \equiv 0 \pmod P$$
-For any state vector $v \in (\mathbb{F}_P)^{27}$, the total sum of the evolved state satisfies:
-$$\sum_{i=0}^{26} (T v)_i = \sum_{j=0}^{26} v_j \left(\sum_{i=0}^{26} T_{i, j}\right) \equiv 0 \pmod P$$
-Applying the 27-point spherical NTT prism ($P = 1\,000\,081, W = 951\,846$):
-$$X[0] = \text{prism}(T v)[0] = \sum_{i=0}^{26} (T v)_i \equiv 0 \pmod P$$
-**Conclusion:** All resonant oscillations carry strictly zero DC ground energy. The uncomputed center is unconditionally preserved. $\blacksquare$
-
----
-
-### Theorem 3: Vanishing Odd Moments & Conjugate Zero Pairing
-Because $(T^{2k+1})^\top = -T^{2k+1}$, taking the trace:
-$$\text{Tr}(T^{2k+1}) = \text{Tr}\big((T^{2k+1})^\top\big) = -\text{Tr}(T^{2k+1}) \implies 2 \text{Tr}(T^{2k+1}) \equiv 0 \pmod P$$
-$$\text{Tr}(T) = 0, \quad \text{Tr}(T^3) = 0, \quad \text{Tr}(T^5) = 0, \quad \dots$$
-**Conclusion:** Every imaginary resonance $+i \gamma_k$ is accompanied by its exact symmetric conjugate $-i \gamma_k$, proving that zeros are paired symmetrically along the critical axis $\frac{1}{2} \pm i \gamma_k$. $\blacksquare$
-
----
-
-## 4. Test Suite & Verification
-
-The suite executes 9 deterministic tests validating every theoretical claim and live physical disk integration on `D:\ASOLARIA-HOST8-ROOMS-300G`:
-
-| Test Name | Theoretical / Empirical Invariant Tested | Execution Time | Result |
-| :--- | :--- | :---: | :---: |
-| `test_host8_300g_metadata_and_ground_alignment` | Total rooms (37.5B), ground center room (18.75B), balanced Zero::Nil | <0.01s | **PASSED** |
-| `test_host8_300g_readback_and_spectral_invariants` | Direct physical read of 71 sample rooms across 375 sectors on `D:`; $X[0] \equiv 0$ | 0.02s | **PASSED** |
-| `half_is_exact_in_rime_sphere_field` | Exact inverse $2^{-1} = (P+1)/2$ in $\mathbb{F}_P$ | <0.01s | **PASSED** |
-| `primes_27_partition_cleanly_in_balanced_ternary` | 1 base carrier ($p=3$) + 26 balanced 3-adic units | <0.01s | **PASSED** |
-| `hilbert_polya_generator_is_strictly_skew_symmetric` | $T^\top = -T \pmod P$ and $T_{i,i} = 0$ | <0.01s | **PASSED** |
-| `hilbert_polya_hamiltonian_has_strictly_zero_off_axis_drift` | $H + H^\top \equiv I$, proving $\text{Re}(\lambda) = 1/2$ | <0.01s | **PASSED** |
-| `uncomputed_center_invariant_holds_on_all_spectral_eigenstates` | $X[0] \equiv 0 \pmod P$ under NTT prism (Law 0) | <0.01s | **PASSED** |
-| `hilbert_polya_discrete_spectrum_matches_first_riemann_zero_statistics` | $\text{Tr}(T) = 0$, $\text{Tr}(T^3) = 0$, $\text{Tr}(T^2) \ne 0$ | <0.01s | **PASSED** |
-| `spherical_ntt_prism_round_trip_is_exact` | Exact integer invertibility of 27-point rime prism | <0.01s | **PASSED** |
-
-### Reproducing the Results & Local Timings
-
-```bash
-cargo clippy --all-targets -- -D warnings
-cargo test -- --nocapture
-```
+Work in F_P with P = 1,000,081. W = 951,846 has multiplicative order 27, and
+PRIMES₂₇ = 2, 3, 5, …, 103. For d = 1, …, 13 the couplings are
 
 ```text
-running 2 tests
-test test_host8_300g_metadata_and_ground_alignment ... ok
-=== RUNNING HOST8 300 GB RIEMANN HYPOTHESIS SPECTRAL EXPERIMENT ===
-Total sample points across 300 GB storage: 71
-SUCCESS: 71/71 Host8 rooms verified on disk with 0 drift and exact Law 0 center.
-test test_host8_300g_readback_and_spectral_invariants ... ok
-test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
-
-running 7 tests
-test half_is_exact_in_rime_sphere_field ... ok
-test hilbert_polya_generator_is_strictly_skew_symmetric ... ok
-test primes_27_partition_cleanly_in_balanced_ternary ... ok
-test spherical_ntt_prism_round_trip_is_exact ... ok
-test hilbert_polya_hamiltonian_has_strictly_zero_off_axis_drift ... ok
-test uncomputed_center_invariant_holds_on_all_spectral_eigenstates ... ok
-test hilbert_polya_discrete_spectrum_matches_first_riemann_zero_statistics ... ok
-test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+c[d]      = (W^d − W^(−d)) · PRIMES₂₇[d]   (mod P)
+c[27 − d] = −c[d]
+T[i][j]   = c[(j − i) mod 27]
+H         = ½I + T,   ½ = (P + 1)/2
 ```
 
-* **Clippy Status**: 0 warnings under `-D warnings` (enforcing strict iterator `enumerate()` patterns).
-* **Local Test Execution Timing**: **0.02s** (0.23s total compilation and test run).
+**Theorem 1 (critical-line symmetry).** Tᵀ = −T and T has zero diagonal, so
 
----
+```text
+H + Hᵀ = (½I + T) + (½I − T) = I.
+```
 
-## 5. Provenance & Attribution
+Over F_P this is an exact modular identity. Lift each c[d] to its balanced
+integer representative in (−P/2, P/2]. The lift is still antisymmetric,
+c[27 − d] = −c[d], so the integer T is a real skew-symmetric matrix. Its
+spectrum over ℂ is purely imaginary,
 
-* **Theoretical Framework:** Jesse Daniel Brown (`JesseBrown1980` / `OP-JESSE`) & Rayssa Chiqueto (`OP-RAYSSA`)
-* **Environment:** Asolaria Federation Remake / ASI OS Native Fabric
-* **Core Primitives:** `tribit` / 27-Point Spherical NTT Prism / Discrete Hilbert-Pólya Hamiltonian
+```text
+spec(T) = {0, ±iγ₁, …, ±iγ₁₃},
+```
+
+and every eigenvalue of H = ½I + T has real part exactly ½. The quadratic form
+xᵀTx vanishes identically, which the tests check over the integers.
+
+**Theorem 2 (centre invariant).** Each row of T sums to zero, so for every
+state v the 27-point prism of Tv has DC component prism(Tv)[0] = 0.
+
+**Theorem 3 (paired ordinates).** Odd powers of T are skew, so
+Tr(T^(2k+1)) = 0. Every ordinate +γ comes with −γ, and the eigenvalues of H
+pair as ½ ± iγ.
+
+**The prime frame.** In balanced ternary, 3 is the single carrier prime. The
+other 26 primes are 3-adic units: 12 with lowest trit Pos (p ≡ 1 mod 3) and 14
+with lowest trit Neg (p ≡ 2 mod 3).
+
+## 2. The experiment: do the ordinates follow the zeta zeros?
+
+Theorem 1 puts the spectrum on Re = ½ for this construction. The step from
+there to ζ(s) is a spectral correspondence: the ordinates γ would have to be
+the zeta ordinates. That is the open research step, and the experiment tests it
+directly.
+
+The test is built to be decided by arithmetic alone.
+- **Freeze first.** The coupling rule, the sizes K = 27, 81, 243, 729, the
+  choice of P_K and W_K, the normalization and the match criterion are fixed
+  in [`PREREGISTRATION.md`](PREREGISTRATION.md) before any zero table enters
+  the repository.
+- **Separate roles.** The builder computes the operator's ordinates and never
+  sees zero data. A separate comparator reads the builder's receipts and the
+  zero table.
+- **Exact counts.** Ordinates are certified integer enclosures, from the
+  circulant formula with interval trigonometry. They are cross-checked against
+  exact integer inertia of A = −T² = TᵀT.
+- **Fixed capacity.** A real skew circulant of odd size K has (K − 1)/2
+  positive ordinates: 13, 40, 121 and 364 at K = 27, 81, 243 and 729.
+
+Results are in [§4](#4-results).
+
+## 3. Tests
+
+```bash
+cargo test
+cargo clippy --all-targets -- -D warnings
+```
+
+| Test | What it checks |
+| :--- | :--- |
+| `half_is_exact_in_rime_sphere_field` | 2 · (P + 1)/2 = 1 in F_P |
+| `primes_27_partition_is_1_carrier_12_pos_14_neg` | 3 is the carrier; 12 Pos and 14 Neg units, each prime's lowest trit |
+| `hilbert_polya_generator_is_strictly_skew_symmetric` | Tᵀ = −T (mod P), zero diagonal |
+| `hilbert_polya_hamiltonian_has_strictly_zero_off_axis_drift` | H + Hᵀ = I over F_P |
+| `integer_lift_is_real_skew_and_reduces_to_the_modular_generator` | Integer lift antisymmetric, reduces to T mod P, xᵀTx = 0 |
+| `uncomputed_center_invariant_holds_on_all_spectral_eigenstates` | prism(Tv)[0] = 0 |
+| `skew_generator_has_expected_trace_identities` | Tr T = Tr T³ = 0, Tr T² ≠ 0 |
+| `spherical_ntt_prism_round_trip_is_exact` | Exact prism inversion |
+| `test_host8_300g_metadata_and_ground_alignment` | Host8 geometry; ground room is all Nil |
+
+### Host8 integration lane
+
+`test_host8_300g_readback_and_spectral_invariants` reads 71 fixed rooms from
+the 300 GB Host8 store: sector ends, the ground room and its neighbours, the
+prime ladder around the ground room, and strided checkpoints. Each stored stub
+is inverted to its 27-trit room address and pushed through the operator, which
+checks H + Hᵀ = I, the exact prism round trip and the centre invariant.
+
+The lane needs the store, so it runs on request:
+
+```bash
+HOST8_DIR=/mnt/d/ASOLARIA-HOST8-ROOMS-300G \
+  cargo test --test host8_riemann_experiment -- --ignored
+```
+
+It passes only when all 71 rooms are read and validated. A missing store or any
+failed read fails the lane.
+
+## 4. Results
+
+The pre-registered comparison is recorded in [`PREREGISTRATION.md`](PREREGISTRATION.md)
+and its receipts.
+
+## Provenance
+
+Theory: **Jesse Daniel Brown** (`JesseBrown1980`) and **Rayssa Chiqueto**.
+Integer-only Rust 1.81.0, no external crates.

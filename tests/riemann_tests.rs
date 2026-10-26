@@ -10,7 +10,7 @@ fn half_is_exact_in_rime_sphere_field() {
 }
 
 #[test]
-fn primes_27_partition_cleanly_in_balanced_ternary() {
+fn primes_27_partition_is_1_carrier_12_pos_14_neg() {
     let mut units_pos = 0;
     let mut units_neg = 0;
     let mut carrier_base = 0;
@@ -30,10 +30,21 @@ fn primes_27_partition_cleanly_in_balanced_ternary() {
         26,
         "All other 26 primes are 3-adic units"
     );
-    assert!(
-        units_pos > 10 && units_neg > 10,
-        "Units must be distributed symmetrically across Pos and Neg crossings"
-    );
+    // Lowest trit Pos <=> p = 1 (mod 3); Neg <=> p = 2 (mod 3).
+    assert_eq!(units_pos, 12, "12 of the first 27 primes are 1 (mod 3)");
+    assert_eq!(units_neg, 14, "14 of the first 27 primes are 2 (mod 3)");
+    for &p in &PRIMES_27 {
+        let expected = match p % 3 {
+            0 => Zero::Nil,
+            1 => Zero::Pos,
+            _ => Zero::Neg,
+        };
+        assert_eq!(
+            to_balanced_ternary(p as i64)[0],
+            expected,
+            "lowest trit of {p}"
+        );
+    }
 }
 
 #[test]
@@ -106,7 +117,7 @@ fn uncomputed_center_invariant_holds_on_all_spectral_eigenstates() {
 }
 
 #[test]
-fn hilbert_polya_discrete_spectrum_matches_first_riemann_zero_statistics() {
+fn skew_generator_has_expected_trace_identities() {
     let t = build_hilbert_polya_generator();
 
     let mut trace_t = 0u64;
@@ -124,7 +135,7 @@ fn hilbert_polya_discrete_spectrum_matches_first_riemann_zero_statistics() {
     }
     assert_eq!(
         trace_t3, 0,
-        "Tr(T³) must be 0 (exact conjugate zero pairing ± i γ_k)"
+        "Tr(T³) must be 0 (odd traces of a skew matrix vanish)"
     );
 
     let mut trace_t2 = 0u64;
@@ -133,7 +144,7 @@ fn hilbert_polya_discrete_spectrum_matches_first_riemann_zero_statistics() {
     }
     assert_ne!(
         trace_t2, 0,
-        "Total spectral energy Tr(T²) must be non-vanishing"
+        "Tr(T²) must be nonzero (T is not the zero matrix)"
     );
 }
 
@@ -146,4 +157,31 @@ fn spherical_ntt_prism_round_trip_is_exact() {
     let spectrum = prism(&frame);
     let back = unprism(&spectrum);
     assert_eq!(frame, back, "Round trip must be exact integer inversion");
+}
+
+#[test]
+fn integer_lift_is_real_skew_and_reduces_to_the_modular_generator() {
+    use riemann_hilbert_polya_spectral::generator_couplings_integer;
+    let c = generator_couplings_integer();
+    let t = build_hilbert_polya_generator();
+    assert_eq!(c[0], 0);
+    for d in 1..K {
+        assert_eq!(c[d], -c[K - d], "c[{d}] = -c[K-{d}] over the integers");
+        assert!(c[d].abs() <= (P as i64) / 2);
+        assert_eq!(c[d].rem_euclid(P as i64) as u64, t.data[0][d]);
+    }
+    // Real skew-symmetric => x^T T x = 0 for every integer x, so no eigenvalue
+    // of 1/2 I + T leaves the line Re = 1/2. Check the quadratic form exactly.
+    for seed in 0..64i128 {
+        let x: Vec<i128> = (0..K as i128)
+            .map(|i| (i * 7919 + seed * 104729) % 2001 - 1000)
+            .collect();
+        let mut q: i128 = 0;
+        for i in 0..K {
+            for j in 0..K {
+                q += x[i] * c[(j + K - i) % K] as i128 * x[j];
+            }
+        }
+        assert_eq!(q, 0);
+    }
 }
