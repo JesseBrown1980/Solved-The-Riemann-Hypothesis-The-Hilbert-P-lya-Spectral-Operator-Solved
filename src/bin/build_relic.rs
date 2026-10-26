@@ -6,6 +6,7 @@
 //! cargo run --release --bin build_relic -- LEVEL [INERTIA=full|none]
 //! ```
 
+use riemann_hilbert_polya_spectral::family::{inertia_of_shifted_gram, sorted_positive_ordinates};
 use riemann_hilbert_polya_spectral::interval::SCALE;
 use riemann_hilbert_polya_spectral::nested::{
     build_with_prime_offset, dense_generator, factors, inertia_dense_gram, landing, landing_size,
@@ -36,6 +37,26 @@ fn main() {
             op.w,
             cs.join(",")
         );
+        // every factor's own ordinates, checked by exact inertia at every rank
+        let fo = sorted_positive_ordinates(&op).unwrap_or_else(|e| panic!("{e}"));
+        let fm = op.m();
+        let (mut checked, mut agree) = (0usize, 0usize);
+        for r in 0..=fm {
+            let tau: i128 = if r == 0 {
+                1
+            } else {
+                let a = fo[r - 1].hi / SCALE + 1;
+                let b = if r < fm { fo[r].lo / SCALE } else { a + 2 };
+                if a >= b {
+                    continue;
+                }
+                a * b
+            };
+            checked += 1;
+            let neg = inertia_of_shifted_gram(&op, i64::try_from(tau).expect("tau fits"));
+            agree += usize::from(neg.as_ref().is_ok_and(|&n| n == 1 + 2 * r));
+        }
+        println!("FACTOR_INERTIA index={i} K={q} checked={checked} agree={agree}");
     }
     let pos = positive_ordinates(&l).unwrap_or_else(|e| panic!("{e}"));
     assert_eq!(pos.len(), m, "one free centre plus symmetric pairs");

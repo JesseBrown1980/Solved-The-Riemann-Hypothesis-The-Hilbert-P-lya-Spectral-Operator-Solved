@@ -11,7 +11,10 @@ fn landing_sizes_follow_the_relic_closed_form() {
     for n in 0..3usize {
         assert_eq!(landing_size(n), 3usize.pow(3 + (n * (n + 3) / 2) as u32));
     }
-    assert_eq!([landing_size(0), landing_size(1), landing_size(2)], [27, 243, 6561]);
+    assert_eq!(
+        [landing_size(0), landing_size(1), landing_size(2)],
+        [27, 243, 6561]
+    );
 }
 
 #[test]
@@ -43,9 +46,17 @@ fn dense_243_generator_inertia_matches_the_kronecker_spectrum_at_spot_ranks() {
             1
         } else {
             let a = pos[r - 1].1 / SCALE + 1;
-            let b = if r < pos.len() { pos[r].0 / SCALE } else { a + 2 };
+            let b = if r < pos.len() {
+                pos[r].0 / SCALE
+            } else {
+                a + 2
+            };
             (a * b) as i64
         };
-        assert_eq!(inertia_dense_gram(n, &t, tau).unwrap(), 1 + 2 * r, "rank {r}");
+        assert_eq!(
+            inertia_dense_gram(n, &t, tau).unwrap(),
+            1 + 2 * r,
+            "rank {r}"
+        );
     }
 }
