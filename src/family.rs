@@ -214,7 +214,7 @@ pub fn gram_first_row(op: &FrozenOperator) -> Vec<i64> {
 }
 
 /// Moduli for the multi-modular determinant signs: the largest primes below 2^61.
-fn moduli(count: usize, skip: &[u64]) -> Vec<u64> {
+pub(crate) fn moduli(count: usize, skip: &[u64]) -> Vec<u64> {
     let mut out = Vec::with_capacity(count);
     let mut n: u64 = (1u64 << 61) - 1;
     while out.len() < count {
@@ -294,7 +294,11 @@ pub fn inertia_of_shifted_gram(op: &FrozenOperator, tau: i64) -> Result<usize, S
 }
 
 /// D_1..D_K mod p by elimination without pivoting; `None` on a zero pivot.
-fn leading_minors_mod(k: usize, entry: &dyn Fn(usize, usize) -> i64, p: u64) -> Option<Vec<u64>> {
+pub(crate) fn leading_minors_mod(
+    k: usize,
+    entry: &dyn Fn(usize, usize) -> i64,
+    p: u64,
+) -> Option<Vec<u64>> {
     let red = |v: i64| -> u64 { v.rem_euclid(p as i64) as u64 };
     // Symmetric: keep the upper triangle only, row-major.
     let mut m: Vec<Vec<u64>> = (0..k)
@@ -338,7 +342,7 @@ fn leading_minors_mod(k: usize, entry: &dyn Fn(usize, usize) -> i64, p: u64) -> 
 /// Signs of the integers with residues `res[i][idx]` mod `mods[i]`, for every
 /// idx < `n`, via balanced mixed-radix (Garner) digits: with every digit in
 /// (−m_i/2, m_i/2], the sign of the value is the sign of its last nonzero digit.
-fn garner_signs(mods: &[u64], res: &[Vec<u64>], n: usize) -> Vec<i8> {
+pub(crate) fn garner_signs(mods: &[u64], res: &[Vec<u64>], n: usize) -> Vec<i8> {
     let r = mods.len();
     // radix[i][t] = Π_{s<t} m_s (mod m_i), t ≤ i; inv[i] = radix[i][i]^(-1) mod m_i
     let mut radix: Vec<Vec<u64>> = Vec::with_capacity(r);

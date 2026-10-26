@@ -52,7 +52,11 @@ fn muldiv_floor(a: u128, b: u128, c: u128) -> u128 {
     let mut rem: u128 = 0;
     let mut q: u128 = 0;
     for i in (0..256).rev() {
-        let bit = if i >= 128 { (hi >> (i - 128)) & 1 } else { (lo >> i) & 1 };
+        let bit = if i >= 128 {
+            (hi >> (i - 128)) & 1
+        } else {
+            (lo >> i) & 1
+        };
         let carry = rem >> 127;
         rem = (rem << 1) | bit;
         q <<= 1;
@@ -81,7 +85,10 @@ fn main() {
         let r = num(l, "rank") as usize;
         ord[r - 1] = (num(l, "lo"), num(l, "hi"));
     }
-    assert!(ord.iter().all(|&(lo, hi)| 0 < lo && lo <= hi), "ordinate enclosures");
+    assert!(
+        ord.iter().all(|&(lo, hi)| 0 < lo && lo <= hi),
+        "ordinate enclosures"
+    );
     let mut z: Vec<(u128, u128)> = Vec::new();
     for l in zeros.lines().filter(|l| l.starts_with("Z ")) {
         assert_eq!(num(l, "n") as usize, z.len() + 1, "zeros in order");
@@ -92,7 +99,10 @@ fn main() {
     let (g1l, g1h) = ord[0];
     let (z1l, z1h) = z[0];
     println!("HBP ZETA-COMPARISON v1");
-    println!("K={k} M={m} anchor=rank1_to_zeta1 zeros_available={}", z.len());
+    println!(
+        "K={k} M={m} anchor=rank1_to_zeta1 zeros_available={}",
+        z.len()
+    );
 
     let (mut agree, mut disagree, mut ambiguous) = (0usize, 0usize, 0usize);
     let mut first_disagree: Option<usize> = None;
@@ -166,6 +176,9 @@ mod tests {
         assert_eq!(mul256(3, 5), (0, 15));
         let (hi, lo) = mul256(u128::MAX, u128::MAX);
         assert_eq!((hi, lo), (u128::MAX - 1, 1));
-        assert_eq!(muldiv_floor(10u128.pow(30), 10u128.pow(30), 10u128.pow(24)), 10u128.pow(36));
+        assert_eq!(
+            muldiv_floor(10u128.pow(30), 10u128.pow(30), 10u128.pow(24)),
+            10u128.pow(36)
+        );
     }
 }
