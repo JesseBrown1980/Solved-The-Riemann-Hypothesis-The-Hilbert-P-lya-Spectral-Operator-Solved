@@ -97,6 +97,11 @@ cargo clippy --all-targets -- -D warnings
 | `skew_generator_has_expected_trace_identities` | Tr T = Tr T³ = 0, Tr T² ≠ 0 |
 | `spherical_ntt_prism_round_trip_is_exact` | Exact prism inversion |
 | `test_host8_300g_metadata_and_ground_alignment` | Host8 geometry; ground room is all Nil |
+| `k27_rule_reproduces_the_original_operator` | The frozen K-rule gives P, G, W and the couplings at K = 27 |
+| `k81_rule_reproduces_the_clasy_x3_field` | The K-rule gives P = 1,000,999, W = 30,722 at K = 81 |
+| `sin_enclosures_are_tight_and_consistent` | Interval sine widths, symmetry and known values |
+| `trace_of_gram_matches_sum_of_squared_ordinates` | Tr(TᵀT) = 2 Σ γ_j² inside the enclosures |
+| `inertia_matches_the_circulant_formula_at_k27` | Exact inertia counts equal 1 + 2r at every rank |
 
 ### Host8 integration lane
 
@@ -118,8 +123,55 @@ failed read fails the lane.
 
 ## 4. Results
 
-The pre-registered comparison is recorded in [`PREREGISTRATION.md`](PREREGISTRATION.md)
-and its receipts.
+The experiment ran in the order fixed in [`PREREGISTRATION.md`](PREREGISTRATION.md).
+Git history shows the freeze first, then the builder receipts, then the zero
+table and comparator, then the verdicts.
+
+**Builder.** Every ordinate enclosure is separated from its neighbours. Exact
+integer inertia of A − τI agrees with the circulant formula at every checked
+rank.
+
+| K | P_K | ordinates | separated | inertia checks agreeing |
+|---:|---:|---:|---:|---|
+| 27 | 1,000,081 | 13 | 13 | 14 / 14 (all ranks) |
+| 81 | 1,000,999 | 40 | 40 | 41 / 41 (all ranks) |
+| 243 | 1,002,619 | 121 | 121 | 122 / 122 (all ranks) |
+| 729 | 1,006,021 | 364 | 364 | spot ranks 0, 46, 91, …, 364: running |
+
+**Zeros.** The table holds γ₁ … γ₁₀₀₀ at 50 digits, with enclosures of width
+2·10⁻¹⁵. Each zero is isolated by a sign change of Hardy's Z function, and
+`nzeros` confirms the count is complete at 1000. All 1000 values lie within
+Odlyzko's published table (zeros6, stated accuracy 4·10⁻⁹).
+
+**Comparison.** The smallest operator ordinate is anchored to γ₁ = 14.134725…,
+and counts are compared between consecutive zeros.
+
+| K | verdict | thresholds agreeing | max \|N_op − N_ζ\| | γ̂₂ vs γ₂ | γ̂_m vs γ_m |
+|---:|---|---:|---:|---|---|
+| 27 | MISMATCH | 1 / 13 | 11 | 31.04 vs 21.02 | 502.92 vs 59.35 |
+| 81 | MISMATCH | 1 / 40 | 24 | 14.76 vs 21.02 | 531.68 vs 122.95 |
+| 243 | MISMATCH | 1 / 121 | 83 | 14.80 vs 21.02 | 2457.93 vs 271.49 |
+| 729 | MISMATCH (receipt pending) | 1 / 364 | 354 | 29.39 vs 21.02 | 81620.23 vs 630.81 |
+
+**Reading, as pre-registered.** The ordinates of this operator family, under
+this anchoring, do not follow the zeta ordinates at any of the four sizes.
+- After anchoring, the largest operator ordinate exceeds γ_m by a factor of
+  8.5, 4.3, 9.1 and 129 at K = 27, 81, 243 and 729.
+- The zeta ordinates grow like 2πn / log n.
+- The count deviation grows with K.
+
+This measures the coupling rule (W^d − W^(−d)) · prime[d]. Theorem 1, the
+critical-line symmetry of the operator, is unaffected. Any next candidate rule
+is evaluated the same way: frozen first, then compared on these four sizes.
+
+Receipts: [`receipts/experiment/`](receipts/experiment/), with `SPECTRUM-K*.hbp`
+from the builder and `COMPARE-K*.hbp` from the comparator. The zero table is
+[`data/zeta/ZEROS-1000.hbp`](data/zeta/ZEROS-1000.hbp).
+
+```bash
+cargo run --release --bin build_spectrum -- 243 full > SPECTRUM-K243.hbp
+cargo run --release --bin compare_zeta -- SPECTRUM-K243.hbp data/zeta/ZEROS-1000.hbp
+```
 
 ## Provenance
 
